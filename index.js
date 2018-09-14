@@ -28,10 +28,9 @@ class droneSet{
     let dmsLong = `${long[0]}º ${long[1]}' ${long[2]}" ${dirWE}`;
     let decLat = `${lat[0] + (lat[1]/60) + (lat[2]/3600)}º ${dirNS}`;
     let decLong = `${long[0] + (long[1]/60) + (long[2]/3600)}º ${dirWE}`;
-    return (coordsPref == "dms") ? `${dmsLat}\n${dmsLong}`: `${decLat}\n${decLong}`;
+    return (coordsPref == "dms") ? `${dmsLat}, ${dmsLong}`: `${decLat}, ${decLong}`;
   }
 }
-
 function imFileConst(dir){
   let outObj = [];
   let files = fs.readdirSync(dir,{encoding:'utf8'});
@@ -44,5 +43,5 @@ function imFileConst(dir){
 //----------Main Program-------------
 let tedData = new droneSet(directory);
 tedData.imageArray.forEach((c,i,a) => {
-  console.log(`${c}: (${tedData.latLongReadout(c)})`);
+  console.log(`${c}:\n  (${tedData.latLongReadout(c)})`);
 });
