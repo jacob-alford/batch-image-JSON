@@ -1,6 +1,5 @@
 const fs = require('fs');
 let exifParse = require('jpeg-exif');
-let globalOutput;
 
 //----------Config-------------
 const directory = './NMMI_200_Test2_Rjpeg/';
